@@ -46,8 +46,8 @@
 | NAV-05 | Navigate to Calendar. | | -Click Calendar | System should navigate user to calendar page. | System navigated user to calendar page. | PASS |
 | NAV-06 | Verify Config menu drop down menu works. | | -Click Config menu | Upon clicking on config menu, 3 dropdown menu should be display which are:<br> -Account Lockout<br>-Organization<br>-Leave Balance. | System navigated user to employee page. | PASS |
 | NAV-07 | Navigate to Account Lockout Page | | - Click Config menu<br>- Click Lockout | Page should navigate to Lockout Page | Page navigated to Lockout Page | PASS |
-| NAV-07 | Navigate to Account Organization Page | | - Click Config menu<br>- Click Organization | Page should navigate to Organization Page | Page navigated to Organization Page | PASS |
-| NAV-07 | Navigate to Account Leave Balance Page | | - Click Config menu<br>- Click Leave Balance | Page should navigate to Leave Balance Page | Page navigated to Leave Balance Page | PASS |
+| NAV-08 | Navigate to Account Organization Page | | - Click Config menu<br>- Click Organization | Page should navigate to Organization Page | Page navigated to Organization Page | PASS |
+| NAV-09 | Navigate to Account Leave Balance Page | | - Click Config menu<br>- Click Leave Balance | Page should navigate to Leave Balance Page | Page navigated to Leave Balance Page | PASS |
 
 
 ## Module - Dashboard-HomePage
@@ -100,7 +100,90 @@
 | EMP-03 | Verify Reset functionality | PEM<br>- an employee is already searched. | Upon reset, list should return to default values. | Upon reset, list returned data to default format. | PASS |
 | EMP-04 | Search employee using filter option along with searchbar | - PEM<br>- employee already exist. | - Click search bar<br>- Enter name<br>- Select Designation to Intern<br>- Select Node as Team<br>- Select joined date<br> Select status. | System should display employee based on selected filters. | System displayed employee based on selected filters. | PASS |
 | EMP-05 | Search for employee that doesnot exist. | PEM | - Click on search bar<br>- Enter a name that doesnot exist<br>- Hit enter | System should display proper message "No Matches Found" | System displayed proper message " No Matches Found " | PASS |
-| 
+| EMP-06 | View Employee profile | PEM | - Select an employee and click on employee name | System should redirect user to profile page. | System redirected user to profile page. | PASS |
+| EMP-07 | Employee action feature | PEM | - Select and employee<br>- Click on action button which looks like 3 vertical dots<br>- Click Reactivate. | System should prompt confirmation modal to user. | System prompted confirmation modal to user | 
+| EMP-08 | Verify Page pagination | PEM | - Go to the bottom of the page<br>- Click pagination button to next or number | Upon clicking pagination button, it should load next section of the table data. | Upon interacting with pagination button, table loaded next section of the table data. | PASS | 
+
+
+## Module - Team Page
+## TestID - TEAM
+### Precondition
+| ID | Precondition |
+|----|--------------|
+|PTE | User is logged in and in Team Page |
+
+### Test data
+- Team name: The Strokes
+- Description: Life is too short, but I will live for you
+You're mucking off, but I will live for you, my selfless love
+- Selected Team: The Strokes
+- Selected Team member: Shivangi
+- Supervisor name: Shivangi supervisor
+
+
+### Test Case
+| Test ID | Description/Scenario | Precondition | Test Steps | Expected Result | Actual Result | Status |
+|---------|----------------------|--------------|------------|-----------------|---------------|--------|
+| TEAM-00 | Add Team | PTE | - Click Add Team button<br>- Enter Team name<br>- Enter Description<br>- Click Add | Team should be created successfully and display message "Added team successfully". | Team created successfully and displayed message "Added team successfully". | PASS |
+| TEAM-01 | View Team Details | - PTE<br>- Team already exist | - Select a team<br>- Click on selected team | Team Details Page should open, should display details such as list of team members along with their name, role, designation, level, joined date. | Team Details Page opened, displayed details such as list of team members along with their name, role, designation, level, joined date. | PASS |
+| TEAM-02 | View Team Members Details | - PTE<br>- already in team details page | - Select and Click on a team member name | Team member profile page should open. | Team member profile page opened. | PASS |
+| TEAM-03 | Search Team by Team name | - PTE<br>- Team already exists | - Click on search<br>- Enter team name | Searched Team should only be displayed. | Only Searched team is displayed. | PASS |
+| TEAM-04 | Search Team by supervisor name | - PTE<br>- supervisor already exists | - Click on search<br>- Enter supervisor name | Searched Team based on supervisor should be displayed. | Searched Team based on supervisor is displayed. | PASS |
+| TEAM-05 | Verify Team List view | PTE | - Click on list view icon | Team should be arranged in a list view. | Team is arranged in a list view. | PASS |
+| TEAM-06 | Add Team with team name and empty description field | PTE | - Click on Add Team<br>- Enter Team name<br>- Leave Description field empty<br>- Click Add | System should display validation error message"Enter Description" under a description field. | System displayed validation error message "Enter Description" under a description field. | PASS | 
+| TEAM-07 | Add Team with empty team name field and valid description field | PTE | - Click on Add Team<br>- Leave Team name field empty<br>- Enter Description empty<br>- Click Add | System should display validation error message"Enter Team Name" under a Team name field. | System displayed validation error message "Enter Team name" under a Team name field. | PASS |
+| TEAM-08 | Verify pagination feature | PTE | - Go to bottom of the page<br>- Interact with pagination components. | Table data should update as per pagination. | Table data is updated as per pagination. | PASS |
+
+
+## Leave and Field Work (Leave Requests)
+## TestID - LFWLR
+### Precondition
+| ID | Precondition |
+|----|--------------|
+| PLR0 | User is logged in and is on Leave request page |
+| PLR1 | User is already on leave approval modal form |
+
+
+### Test Case
+
+| Test ID | Description/Scenario | Precondition | Test Steps | Expected Result | Actual Result | Status |
+|---------|----------------------|--------------|------------|-----------------|---------------|--------|
+| LFWLR-00 | Verify the leave request username along with status | PLR0 | - Observe the list of pending user for leave request. | Should display List of user with details such as their<br>- Name, Date, Leave Type, and Status | Displayed list of user with details such as<br> -  Name, Date, Leave Type, and Status | PASS | 
+| LFWLR-01 | View Leave Details | PLR0 | - Click on user from the leave request list<br> | Should display a model containing details about leave which includes:<br>- Date, Leave Type, Supervisor, Status, Leave period, total deduction to leave balance, and approval and disapproval button to make decision. | Displayed a model containing details about leave which includes:<br>- Date, Leave Type, Supervisor, Status, Leave period, total deduction to leave balance, and approval and disapproval button to make decision. | PASS |
+| LFWLR-02 | Approve leave confirmation modal | PLR0 | - Click on user<br>- Click on approve | System should prompt confirmation modal along with a remark field. | Syste prompted confirmation modal along with a remark field. | PASS |
+| LWFLR-03 | Approve leave | PLR0 | - Click on user<br>- CLick Approve<br>- Enter Remarks<br>-Click Save | System should successfully approve leave and display success message "You have successfully approved Leave request". | System successfully approved leave and displayed success message "You have successfully approved Leave request". | PASS |
+| LWFLR-04 | Approve leave without remark field | PLR0,PLR1 | - Click on approve<br>- leave remark field empty<br>- Click save | System should display error message under a remark field "Remark is required". | System should display error message under a remark field "Remark is required". | PASS |
+| LWFLR-05 | Filter leave by type | PLR0 | - Click on Leave types(WFH, Out and About, Leave) | Employee based on selected leave type should be displayed. | Employee based on selected leave type is displayed. | PASS |
+| LWFLR-06 | Filter leave by status | PLR0 | - Click on filter menu beside Showing word<br>- Select prefered status | It should list out the employee based on the selected status. | It listed out the employee based on the selected status. | PASS |
+
+
+## Module - Leave Types
+## TestID - LT
+
+### Precondition
+| ID | Precondition |
+|----|--------------|
+| PLT0 | User is logged in, on Leave type page. |
+
+### Test Data
+- leave name: Mental health leave
+- allocated days: 7 days
+- Max leave in a month: 2
+- Allocation type: All Employee
+### Test Case
+
+| Test ID | Description/Scenario | Precondition | Test Steps | Expected Result | Actual Result | Status |
+|---------|----------------------|--------------|------------|-----------------|---------------|--------|
+| LT-00 | Add Leave | PLT0 | - Click on Add Leave<br>- Fill up required Details such as Leeave name, allocated days, max leave in month description.<br>- Select allocation type to all employee<br>- Click Save | Success message "Added leave type" and leave should be added. | Success message "Added leave type" displayed and leave added. | PASS |
+| LT-01 | Edit Leave | PLT0 | - Click on Mental health leave<br>- Click on Edit<br>- Change any required details.<br>- Click save | Edit success message "Your changes have been saved." should be displayed and leave type should be updated. | Edit success message "Your changes have been saved." is displayed and leave type is updated.
+| LT-02 | Delete Leave Type | PLT0 | - Select and click on leave type<br>- Click Delete<br>- Click Delete | Selected Leave type should be deleted and display success message "You have deleted Mental Health Leave." | Selected Leave type is deleted and success message "You have deleted Mental Health Leave." is displayed. | PASS |
+| LT-03 | Add Leave Type without Leave name | PLT0 | - Click add leave<br>- Leave leave name empty<br>- fill all the required details<br>- Click save | System should display error message "Enter leave name" just below the Leave name field | System displayed error message "Enter leave name" just below the Leave name field | PASS |
+| LT-04 | Add Leave Type without Allocated days | PLT0 | - Click add leave<br>- Leave Allocated days empty<br>- fill all the required details<br>- Click save | System should display error message "Enter no of days" just below the allocated days field | System displayed error message "Enter no of days" just below the allocated days field | PASS |
+| LT-05 | Add Leave Type with empty max leave in a month field | PLT0 | - Click add leave<br>- Leave max leave in a month field empty<br>- fill all the required details<br>- Click save | System should display error message "Enter no of days" just below the max leave  field | System displayed error message "Enter no of days" just below the max leave field | PASS |
+| LT-06 | Add Leave Type with empty allocation type | PLT0 | - Click add leave<br>- Leave allocation empty<br>- fill all the required details<br>- Click save | System should display error message "Select type" just below the allocation type field | System displayed error message "Select type" just below the allocation field | PASS |
+
+
+
 
 
 
