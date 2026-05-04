@@ -20,6 +20,8 @@
 | LOGIN-02 | Password Masking | PRE-0 | - Enter valid password<br>- Click on eye icon. | Password should be visible | Password is visible | PASS |
 | LOGIN-03 | Verify email pattern | PRE-0 | - Enter invalid email in random pattern | Under the email field, an error message "Invalid email address" should be displayed. | Error message "Invalid email address" displayed under the email field. | PASS |
 | LOGIN-04 | Login with valid email and empty password field | PRE-0 | - Enter valid email<br>- leave password field empty<br>- Click Log in | Error message"Required" under password field should be visible. | Error message "Required" visible under password field. | PASS |
+| LOGIN-05 | SQL injection | PRE-0 | - Enter SQL Injection script<br>- click login | Email field should display invalid email message under email field. | Email field displayed invalid email message under email field. | PASS |
+
 
 
 
