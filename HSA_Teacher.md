@@ -5,7 +5,7 @@
 ### Precondition
 | ID | Precondition |
 |----|--------------|
-| PRE-0 | User is on Login Page |
+| PRE-0 | User is on Login Page & registered. |
 
 ### Test Data
 - valid email: sangam.karki+CE1@innovatetech.co
